@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import infrun.hellospring.domain.Member;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class MemoryMemberRepositoryTest {
@@ -18,6 +19,7 @@ class MemoryMemberRepositoryTest {
     }
 
     @Test
+    @DisplayName("멤버 저장")
     void save() {
         Member member = new Member();
         member.setName("spring");
@@ -30,10 +32,12 @@ class MemoryMemberRepositoryTest {
     }
 
     @Test
+    @DisplayName("아이디 숫자로 멤버 찾기")
     void findById() {
     }
 
     @Test
+    @DisplayName("이름으로 찾기")
     void findByName() {
         Member member1 = new Member();
         member1.setName("spring1");
@@ -49,6 +53,7 @@ class MemoryMemberRepositoryTest {
     }
 
     @Test
+    @DisplayName("전체 멤버 호출")
     void findAll() {
         Member member1 = new Member();
         member1.setName("spring1");
