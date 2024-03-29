@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 //@Service
-@Transactional
+//@Transactional
 public class MemberService {
 
 
@@ -22,8 +22,17 @@ public class MemberService {
     }
 
     public Member signIn(Member member) {
+        // 공통 로직과 핵심 로직이 혼재 되어있어 유지보수 힘듦
+        long start = System.currentTimeMillis();
+
+        try {
         validateDuplicateMember(member); // 중복 회원 검증
         return memberRepository.save(member);
+        } finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("SignIn = " + timeMs + "ms");
+        }
     }
 
     public List<Member> findAllMembers() {

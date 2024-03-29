@@ -9,26 +9,22 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 
-@SpringBootTest
-@Transactional
 class MemberServiceTest {
 
     MemberService memberService;
     MemoryMemberRepository memberRepository;
 
-//    @BeforeEach
-//    public void beforeEach() {
-//        memberRepository = new MemoryMemberRepository();
-//        memberService = new MemberService(memberRepository);
-//    }
-//
-//    @AfterEach
-//    public void afterEach() {
-//        memberRepository.clearStore();
-//    }
+    @BeforeEach
+    public void beforeEach() {
+        memberRepository = new MemoryMemberRepository();
+        memberService = new MemberService(memberRepository);
+    }
+
+    @AfterEach
+    public void afterEach() {
+        memberRepository.clearStore();
+    }
 
     @Test
     @DisplayName("회원가입")
