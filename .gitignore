@@ -37,4 +37,5 @@ out/
 .vscode/
 
 ### properties ###
-src/main/resources/application.properties
+spring-start/
+src/main/resources/
