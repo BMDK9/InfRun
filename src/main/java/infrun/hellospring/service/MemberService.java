@@ -4,19 +4,16 @@ import infrun.hellospring.domain.Member;
 import infrun.hellospring.repository.MemberRepository;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 //@Service
-//@Transactional
+@Transactional
 public class MemberService {
 
 
     private final MemberRepository memberRepository;
 
-//    @Autowired
+    //    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
@@ -26,8 +23,8 @@ public class MemberService {
         long start = System.currentTimeMillis();
 
         try {
-        validateDuplicateMember(member); // 중복 회원 검증
-        return memberRepository.save(member);
+            validateDuplicateMember(member); // 중복 회원 검증
+            return memberRepository.save(member);
         } finally {
             long finish = System.currentTimeMillis();
             long timeMs = finish - start;

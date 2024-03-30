@@ -22,9 +22,10 @@ dependencies {
 
     // H2
     runtimeOnly 'com.h2database:h2'
-    // JDBC & JPA
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    // JDBC
+//    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    // JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
 
 tasks.named('test') {
