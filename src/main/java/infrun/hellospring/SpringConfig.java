@@ -13,7 +13,25 @@ import org.springframework.context.annotation.Configuration;
 public class SpringConfig {
 
 //     Jdbc
-        private DataSource dataSource;
+//        private DataSource dataSource;
+//
+//    @Autowired
+//    public SpringConfig(DataSource dataSource) {
+//        this.dataSource = dataSource;
+//    }
+//
+//    @Bean
+//    public MemberService memberService() {
+//        return new MemberService(memberRepository());
+//    }
+//
+//    @Bean
+//    public MemberRepository memberRepository() {
+//        return new JdbcMemberRepository(dataSource);
+//    }
+
+    // Jdbc Template
+    private DataSource dataSource;
 
     @Autowired
     public SpringConfig(DataSource dataSource) {
@@ -27,7 +45,7 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository() {
-        return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 
     // JPA
